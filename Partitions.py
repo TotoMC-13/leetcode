@@ -18,4 +18,20 @@ class Solution:
             last: int = None
 
             for i, l in enumerate(s):
-                ...
+                if l == letter:
+                    if first is None:
+                        first = i + 1
+                    else:
+                        last = i + 1
+                
+            if last is None:
+                last = first
+            
+            intervals[letter] = (first, last)
+
+        print(intervals)
+
+x = "aabbssagf"
+
+s = Solution()
+s.get_intervals(x)
